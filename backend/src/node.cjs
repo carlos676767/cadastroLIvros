@@ -1,9 +1,9 @@
 const fastify = require("fastify")({ logger: true });
 
-const array = []
-fastify.get("/", function handler(request, resposta) {
-  resposta.send({ hello: "este e um dado do back end fds" });
-  console.log(request.body);
+const dadosLivros = [];
+fastify.get("/livros", function handler(request, resposta) {
+  resposta.send({ hello: "Dados enviados com sucesso." });
+  dadosLivros.push(request.body);
 });
 
 fastify.listen({ port: 3000 }, (err) => {
