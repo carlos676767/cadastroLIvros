@@ -8,7 +8,7 @@ const enviarSenhaEemail = async () => {
   };
 
   try {
-    const data = await fetch("", {
+    const data = await fetch("http://localhost:3000/login", {
       method: "POST",
       body: JSON.stringify(dadosCadastrados),
     });
