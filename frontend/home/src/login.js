@@ -16,7 +16,14 @@ const enviarSenhaEemail = async () => {
     console.log(responseData);
   } catch (error) {
     console.log(error);
+  } finally {
+    limparInput(usuario, senha);
   }
+};
+
+const limparInput = (email, senha) => {
+  email.value = "";
+  senha.value = "";
 };
 
 const button = document.querySelector("button");

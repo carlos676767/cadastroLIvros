@@ -3,8 +3,8 @@ const fastify = require("fastify")({ logger: true });
 const dadosRecebidosFrontEnd = [];
 fastify.post("/login", function handler(request, resposta) {
   resposta.send({
-    sucesso: "seuse dados de email e senha foram enviados com sucesso.",
-    status: "ok",
+    sucesso: "seus dados de email e senha foram enviados com sucesso.",
+    status: "OK",
   });
   dadosRecebidosFrontEnd.push(request.body);
   console.log(dadosRecebidosFrontEnd);
