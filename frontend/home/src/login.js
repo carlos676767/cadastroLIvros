@@ -1,12 +1,19 @@
-const enviarSenhaEemail = async () => {
-  const usuario = document.getElementById("username");
-  const senha = document.getElementById("password");
+const usuario = document.getElementById("username");
+const senha = document.getElementById("password");
 
+const validacoesFrontEnd = () => {
+  if (valorVazio(senha.value, usuario.value)) {
+   return
+  } else {
+    enviarLogin();
+  }
+};
+
+const enviarLogin = async () => {
   const dadosCadastrados = {
     email: usuario.value,
     senha: senha.value,
   };
-
   try {
     const data = await fetch("http://localhost:3000/login", {
       method: "POST",
@@ -26,7 +33,11 @@ const limparInput = (email, senha) => {
   senha.value = "";
 };
 
+const valorVazio = (email, senha) => {
+  return email.trim() === "" && senha.trim() === "";
+};
+
 const button = document.querySelector("button");
 button.addEventListener("click", () => {
-  enviarSenhaEemail();
+  validacoesFrontEnd();
 });
